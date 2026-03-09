@@ -1,1 +1,179 @@
-hallo
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index // PORTFOLIO Q4</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Outfit:wght@200;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gojo-blue: #00d2ff;
+            --geto-gold: #ffcc33;
+            --void-black: #0a0a0c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--void-black);
+            font-family: 'Outfit', sans-serif;
+            color: white;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: url("https://i.pinimg.com/736x/c9/e7/6a/c9e76a124d2b220833ec0a1637d12d9e.jpg") center/cover no-repeat;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%);
+            z-index: 1;
+        }
+
+        .main-frame {
+            position: relative;
+            z-index: 2;
+            width: 85%;
+            max-width: 900px;
+            height: 70vh;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            background: rgba(10, 10, 12, 0.6);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(0,0,0,1);
+        }
+
+        .corner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid transparent;
+        }
+        .top-left { top: -5px; left: -5px; border-top-color: var(--gojo-blue); border-left-color: var(--gojo-blue); }
+        .bottom-right { bottom: -5px; right: -5px; border-bottom-color: var(--geto-gold); border-right-color: var(--geto-gold); }
+
+        header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, var(--gojo-blue), #fff, var(--geto-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .status-tag {
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            color: var(--geto-gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .action-link {
+            position: relative;
+            font-size: 1.5rem;
+            text-decoration: none;
+            color: #fff;
+            padding: 20px 60px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: 0.5s;
+            overflow: hidden;
+            font-weight: 200;
+        }
+
+        .action-link:hover {
+            letter-spacing: 5px;
+            border-color: var(--gojo-blue);
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .action-link::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .action-link:hover::after {
+            left: 100%;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-frame">
+        <div class="corner top-left"></div>
+        <div class="corner bottom-right"></div>
+
+        <header>
+            <h1>Ybañez</h1>
+            <p style="font-weight: 200; opacity: 0.8; letter-spacing: 2px;">GRADED EXERCISE // QUARTER 4</p>
+        </header>
+
+        <div class="content">
+            <span class="status-tag">COUGH COUGH...</span>
+            <a href="https://github.com/RaizaLeigh-lelele/qrt4-repo.git" class="action-link">VIEW REPOSITORY</a>
+            <a href="https://raizaleigh-lelele.github.io/qrt4-repo/public/quarter%204/q41grubidiumYBANEZ.html" class="action-link">1st Graded Exercise</a>
+        </div>
+
+        <footer>
+            <span>System: sir please bonus points..?</span>
+            <span>jjk - gojo/geto themed</span>
+        </footer>
+    </div>
+
+    <script>
+        const h1 = document.querySelector('h1');
+        setInterval(() => {
+            h1.style.textShadow = Math.random() > 0.9 ? '0 0 20px rgba(0, 210, 255, 0.8)' : 'none';
+        }, 100);
+    </script>
+</body>
+</html>
