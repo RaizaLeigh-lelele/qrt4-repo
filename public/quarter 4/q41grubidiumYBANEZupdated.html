@@ -750,11 +750,256 @@
                 opacity: 0.7; 
             }
         }
+
+        .status-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 40px;
+            background: rgba(5, 5, 6, 0.9);
+            border-bottom: 1px solid var(--dark-rust);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-sizing: border-box;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .status-header::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+            animation: pulse-line 4s infinite;
+        }
+
+        .status-label {
+            font-family: monospace;
+            font-size: 0.65rem;
+            color: var(--cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .bracket-box {
+            position: relative;
+            padding: 10px;
+        }
+
+        .bracket {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border: 2px solid var(--rust);
+        }
+
+        .br-tl { 
+            top: -5px; 
+            left: -5px; 
+            border-right: none; 
+            border-bottom: none; 
+        }
+
+        .br-tr { 
+            top: -5px; 
+            right: -5px; 
+            border-left: none; 
+            border-bottom: none; 
+        }
+
+        .br-bl { 
+            bottom: -5px; 
+            left: -5px; 
+            border-right: none; 
+            border-top: none; 
+        }
+
+        .br-br { 
+            bottom: -5px; 
+            right: -5px; 
+            border-left: none; 
+            border-top: none; 
+        }
+
+        .bracket-box:hover .bracket {
+            border-color: var(--cyan);
+            filter: drop-shadow(0 0 5px var(--cyan));
+            transition: 0.3s;
+        }
+
+        .live-log {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.6rem;
+            color: var(--rust);
+            opacity: 0.6;
+            line-height: 1.4;
+            pointer-events: none;
+        }
+
+        .log-entry::before {
+            content: "> ";
+            color: var(--cyan);
+        }
+
+        @keyframes pulse-line {
+            0%, 100% { 
+                opacity: 0.3; 
+            }
+            50% { 
+                opacity: 1; 
+            }
+        }
+
+        .tech-dot {
+            width: 3px;
+            height: 3px;
+            background: var(--cyan);
+            display: inline-block;
+            margin: 0 5px;
+            vertical-align: middle;
+            box-shadow: 0 0 5px var(--cyan);
+        }
+
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            pointer-events: none;
+            filter: blur(0.5px);
+        }
+
+        .screen-side-ad {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%); 
+            width: 200px; 
+            height: 60vh; 
+            background: rgba(5, 5, 6, 0.9);
+            border: 1px solid var(--dark-rust);
+            z-index: 9999;
+            overflow: visible;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            opacity: 0;
+            transition: opacity 0.5s ease, border-color 0.5s ease;
+            pointer-events: auto; 
+            cursor: crosshair;
+        }
+
+        .screen-left { 
+            left: calc(50% - 550px);
+            border-right: 2px solid var(--cyan); 
+        }
+
+        .screen-right { 
+            right: calc(50% - 550px);
+            border-left: 2px solid var(--rust); 
+        }
+
+        .screen-side-ad img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.4);
+            transition: 0.5s;
+        }
+
+        .screen-tag {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--cyan);
+            color: var(--obsidian);
+            font-family: monospace;
+            font-size: 0.5rem;
+            padding: 2px 6px;
+            white-space: nowrap;
+            letter-spacing: 1px;
+            font-weight: bold;
+            box-shadow: 0 0 10px var(--cyan);
+        }
+
+        .side-bracket-top, .side-bracket-bottom {
+            transition: none;
+        }
+
+        .side-bracket-top { 
+            top: -5px; 
+            left: -5px; 
+            border-right: none; 
+            border-bottom: none; 
+        }
+
+        .side-bracket-bottom { 
+            bottom: -5px; 
+            right: -5px; 
+            border-left: none; 
+            border-top: none; 
+        }
+
+        .screen-side-ad:hover {
+            opacity: 1;
+            border-color: var(--cyan);
+        }
+
+        .screen-side-ad:hover img {
+            filter: grayscale(0%) brightness(0.9);
+        }
+
+        @media (max-width: 800px) {
+            .screen-side-ad { display: none; }
+        }
     </style>
 </head>
 <body>
+<div class="screen-side-ad screen-left">
+    <img src="https://i.pinimg.com/736x/7b/a4/e4/7ba4e4830ecfe211a34a2d430a622031.jpg">
+    <div class="side-bracket-top"></div>
+    <div class="side-bracket-bottom"></div>
+    <span class="screen-tag">Itcky</span>
+</div>
+
+<div class="screen-side-ad screen-right">
+    <img src="https://i.pinimg.com/736x/98/6f/15/986f15d4884be783ac67743f016b37ee.jpg">
+    <div class="side-bracket-top"></div>
+    <div class="side-bracket-bottom"></div>
+    <span class="screen-tag">Ishee</span>
+</div>
+
+<canvas id="particleCanvas"></canvas>
+
+<header class="status-header">
+    <div class="status-label"><span class="tech-dot"></span> MOVIE_LIST_ACTIVE</div>
+    <div class="status-label">haha its me <span class="tech-dot"></span></div>
+</header>
+
+<div class="live-log">
+    <div class="log-entry">INIT_RaizaLeigh-lelele</div>
+    <div class="log-entry">LOADING_DISEASES...</div>
+    <div class="log-entry" style="color: var(--cyan);">LIST_ESTABLISHED</div>
+</div>
+
+<div class="bracket-box">
+    <div class="bracket br-tl"></div>
+    <div class="bracket br-tr"></div>
+    <div class="bracket br-bl"></div>
+    <div class="bracket br-br"></div>
+    <h2>Movie Vault</h2>
+</div> 
+
 <div class="side-widget left-widget">
-    <div class="vertical-data">eepy</div>
+    <div class="vertical-data">pleek no more</div>
     <div class="hud-bar"></div>
     <div class="hud-circle"></div>
     <div class="hud-bar"></div>
@@ -764,7 +1009,7 @@
     <div class="hud-bar"></div>
     <div class="hud-circle" style="border-color: var(--rust); animation-direction: reverse;"></div>
     <div class="hud-bar"></div>
-    <div class="vertical-data">ooooo</div>
+    <div class="vertical-data">ayoko na bro</div>
 </div>
 
 <div class="bg-filler"></div>
@@ -818,6 +1063,93 @@
 </div>
 
 <script>
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+    const particleCount = 200;
+
+    const colors = ['#00f3ff', '#8d6e63', '#3e2723'];
+
+    function init() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        particles = [];
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    class Particle {
+        constructor() {
+            this.reset();
+        }
+
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = (Math.random() - 0.5) * 0.5;
+            this.speedY = (Math.random() - 0.5) * 0.5;
+            this.color = colors[Math.floor(Math.random() * colors.length)];
+            this.opacity = Math.random();
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color;
+            ctx.globalAlpha = this.opacity;
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = this.color;
+            ctx.fill();
+        }
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+            drawLines(p);
+        });
+    
+        requestAnimationFrame(animate);
+    }
+
+    function drawLines(p1) {
+        particles.forEach(p2 => {
+            const dx = p1.x - p2.x;
+            const dy = p1.y - p2.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < 100) {
+                ctx.beginPath();
+                ctx.strokeStyle = p1.color;
+                ctx.globalAlpha = (1 - distance / 100) * 0.2;
+                ctx.lineWidth = 0.5;
+                ctx.moveTo(p1.x, p1.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+            }
+        });
+    }
+
+    window.addEventListener('resize', init);
+    init();
+    animate();
+
     let currentRating = 0;
 
     const stars = document.querySelectorAll('#starInput span');
