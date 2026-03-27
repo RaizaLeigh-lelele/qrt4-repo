@@ -166,6 +166,6 @@
     d. If you were designing a webpage for a school event, how might you use positioning to highlight important information? Please give concrete examples.
 
     -       relative: adjust layout spacing
-    -       absolute: badges like "NEW!!" on announcementsSSS
+    -       absolute: badges like "NEW!!" on
     -       fixed: navigation bar that stays on top
     -       z-index: make important announcements appear on top
