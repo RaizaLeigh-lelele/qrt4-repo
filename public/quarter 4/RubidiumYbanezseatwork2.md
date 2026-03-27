@@ -118,7 +118,7 @@
 #### Challenge 1: 
 ```css
 .content {
-    position: relative;
+    position: absolute;
     z-index: 1;
 }
 
