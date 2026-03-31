@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <meta name="author" content="Sir Roy/Al Mendoza">
+  <meta name="author" content="JALDON, Unna">
+  <meta name="author" content="YBANEZ, Raiza">
   <meta name="description" content="testing and debugging">
   <meta name="keywords" content="testing and debugging">
-  <title>CS3 </title>
+  <title>CS 3 3Q JALDON AND YBANEZ</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,63 +57,63 @@
       </tr>
       <tr>
         <td> 1 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> #7 - #8</td>
+        <td>styleleft and stylebottom is not a valid JS property</td>
+        <td>Change it to point.style.left and point.style.bottom respectively</td>
       </tr>
       <tr>
         <td> 2 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td> #1</td>
+        <td>The function plotPoint was never closed</td>
+        <td>Add a } after the last else block</td>
       </tr>
       <tr>
         <td> 3 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td>#2</td>
+        <td>Used in1 and out1 without getting them from the html</td>
+        <td>Used document.getElementById to properly assign them</td>
       </tr>
       <tr>
         <td> 4 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td>#9</td>JS
+        <td>Every time the function runs it keeps adding dots on top of each other</td>
+        <td>Cleared the coordinatePlane before adding a new point</td>
       </tr>
       <tr>
         <td> 5 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td>#11-24</td> 
+        <td>Border case was only caught by else which is not clear and can be wrong logically</td>
+        <td>Added explicit condition if (x == x0 || y == y0) first</td>
       </tr>
       <tr>
         <td> 6 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td>#25 - #28</td>
+        <td>The Nav was required to be "fixed" and not scroll</td>
+        <td>Added position: fixed; top: 0; left: 0; z-index: 1000;</td>
       </tr>
       <tr>
         <td> 7 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td>#7 - #9</td>
+        <td>CSS doesn't combine these. It only reads the last one which is Roboto</td>
+        <td>Change it into this: font-family: 'Poppins', 'Open Sans', 'Roboto', sans-serif;</td>
       </tr>
       <tr>
         <td> 8 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td>#35</td>
+        <td>display: block on nav a forced links to stack instead of staying on one line</td>
+        <td>display: inline-block;</td>
       </tr>
       <tr>
         <td> 9 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td>#40</td>
+        <td>The space in nav a :hover prevented the link itself from changing color</td>
+        <td>Remove the space: nav a:hover</td>
       </tr>
       <tr>
         <td> 10 </td> 
-        <td> </td> 
-        <td> </td>
-        <td> </td>
+        <td>#52-#56</td>
+        <td>.point lacked position: absolute, which made the JS left/bottom values get ignored</td>
+        <td>Add position: absolute</td>
       </tr>
      
     </table>
